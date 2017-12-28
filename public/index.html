@@ -50,6 +50,7 @@
       		url: "/api/articles",
       		method: 'GET'
     	}).done(function(response) {
+    		console.log(response);
 
     	for(i = 0; i < response.length; i++){
 			var div = document.createElement("div");
