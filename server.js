@@ -27,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 var databaseUri = "mongodb://localhost/articleScraperDB";
+// mongo ds133597.mlab.com:33597/heroku_4k81nqhw -u heroku_4k81nqhw -p 9o4jtaj88qtb4mmbcmotkg3hbd
 
 if(process.env.MONGODB_URI){
   console.log("Connected via Heroku.");
@@ -102,6 +103,13 @@ app.get("/api/articles", function(req, res) {
       // If an error occurred, send it to the client
       res.json(err);
     });
+});
+
+app.post("/api/saved", function(req, res){
+  console.log(req.body);
+  models.UserSave.create(req.body).then(function(response){
+    res.end();
+  });
 });
 
 

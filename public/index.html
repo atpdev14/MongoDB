@@ -27,7 +27,7 @@
 	<div class="container">
 			
 			<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-				
+
 			  <div class="collapse navbar-collapse" id="navbarNav">
 			    <h1 id="title">Sample Scraper</h1>
 			     <a class="nav-link" href="./index.html">Home</a>
@@ -42,31 +42,57 @@
 	</div> <!-- CONTAINER CLOSURE -->
 
 	<script type="text/javascript">
+
 		  $.ajax({
       		url: "/api/articles",
       		method: 'GET'
     	}).done(function(response) {
     		console.log(response);
 
-    	for(i = 0; i < response.length; i++){
-			var div = document.createElement("div");
-			var anchor = document.createElement("a");
-			var saveButton = "<button class='saveButton'>Save</button>";
-			var deleteButton = "<button class='deleteButton'>X</button>";
-			div.innerHTML += saveButton;
-			// div.innerHTML += deleteButton;
-			div.className += "sampleDiv";
-	
-			anchor.innerHTML += response[i].title;
-			anchor.href = response[i].link;
-			anchor.className += "samplePackLink";
-			
-			div.prepend(anchor);
+	    	for(i = 0; i < response.length; i++){
+				var div = document.createElement("div");
+				var anchor = document.createElement("a");
+				var saveButton = "<button class='saveButton'>Save</button>";
+				var deleteButton = "<button class='deleteButton'>X</button>";
+				div.innerHTML += saveButton;
+				// div.innerHTML += deleteButton;
+				div.className += "sampleDiv";
+		
+				anchor.innerHTML += response[i].title;
+				anchor.href = response[i].link;
+				anchor.className += "samplePackLink";
+				
+				div.prepend(anchor);
 
-			$("#scrapedArticles").prepend(div);  
-		}  	
+				$("#scrapedArticles").prepend(div);  
+			}  	
+   		});
 
-   		 });
+
+		$(document).on('click', '.saveButton', function(event) {
+			var newSave = {
+				title: this.parentElement.children[0].text,
+				link: this.parentElement.children[0].href
+			};
+			console.log(newSave);
+
+			$.ajax({
+				url: "/api/saved",
+				method: "POST",
+				data: newSave
+			}).done(function(response){
+				console.log(response);
+			});
+
+
+
+			// $.post("/api/saved", newSave, function(data, status){
+			// 	console.log(data);
+			// 	console.log(status);
+			// });
+    	  	
+		})
+
 	</script>
 
 	<!-- App.js -->
