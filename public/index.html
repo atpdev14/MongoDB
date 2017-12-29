@@ -19,23 +19,19 @@
 
 	<!-- App.js -->
 	<script type="text/javascript" src="app.js"></script>
+
+	<!-- STYLE.CSS -->
+	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
 	<div class="container">
-			<!-- NAVIGATION BAR -->
-			<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 			
+			<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+				
 			  <div class="collapse navbar-collapse" id="navbarNav">
-			    <ul class="navbar-nav">
-
-			      <li class="nav-item active">
-			        <a class="nav-link" href="./index.html">Home</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="./saved.html">Saved Articles</a>
-			      </li>
-			    
-			    </ul>
+			    <h1 id="title">Sample Scraper</h1>
+			     <a class="nav-link" href="./index.html">Home</a>
+			     <a class="nav-link" href="./saved.html">Saved Articles</a>
 			  </div>
 			</nav>
 
@@ -58,7 +54,7 @@
 			var saveButton = "<button class='saveButton'>Save</button>";
 			var deleteButton = "<button class='deleteButton'>X</button>";
 			div.innerHTML += saveButton;
-			div.innerHTML += deleteButton;
+			// div.innerHTML += deleteButton;
 			div.className += "sampleDiv";
 	
 			anchor.innerHTML += response[i].title;

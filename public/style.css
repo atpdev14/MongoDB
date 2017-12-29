@@ -1,0 +1,44 @@
+body {
+	background: url("./images/vinyl_bg.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.sampleDiv {
+	background: lightgrey;
+	margin: 5px;
+	width: 100%;
+	border-color: white;
+	border-style: solid;
+	border-width: 1px;
+	text-align: center;
+	font-size: 30px;
+	padding: 8px;
+}
+
+.nav-link {
+	font-size: 20px;
+	position: relative;
+    top: 14px;
+    float: right;
+    margin-right: 15px;
+}
+
+.navbar{
+	background: lightgrey
+}
+
+#saveButton, #deleteButton {
+	position: relative;
+	left: 5px;
+}
+
+#scrapedArticles {}
+
+#title {
+	display: inline;
+}
