@@ -29,8 +29,10 @@ app.use(express.static("public"));
 var databaseUri = "mongodb://localhost/articleScraperDB";
 
 if(process.env.MONGODB_URI){
+  console.log("Connected via Heroku.");
   mongoose.connect(process.env.MONGODB_URI);
 }else{
+  console.log("Connected locally.");
   mongoose.connect(databaseUri);
 }
 
